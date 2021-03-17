@@ -1,0 +1,62 @@
+# zookeeper相关指令
+zkServer.sh start
+zkServer.sh stop
+zkServer.sh status
+
+
+
+
+# hadoop相关指令
+hadoop-daemons.sh start journalnode
+
+hadoop hdfs -format
+hadoop zkfc -formatZK
+
+start-dfs.sh
+start-yarn.sh
+
+scp -r ${HADOOP_HOME}/tmp/dfs/name slave1:$PWD
+scp -r ${HADOOP_HOME}/tmp/dfs/name slave2:$PWD
+
+yarn-daemon.sh start resourcemanager
+hadoop-daemon.sh start namendoe
+
+mr-jobhistory-daemon.sh start historyserver
+
+hdfs haadmin -getServiceState master
+yarn rmadmin -getServiceState rm1
+
+
+
+
+
+# sqoop相关指令
+sqoop list-databases --connect jdbc:mysql://master:3306/test -username root -passwd -P
+
+sqoop import --connect jdbc:mysql://master:3306/test -username root -passwd Password123$ --table users --columns id,name --target-dir '/sqoop/users'
+
+sqoop export --connect jdbc:mysql://master:3306/test -username root -passwd Password123$ --table users --export-dir /sqoop/user/part-m-00000 --input-fiels-terminated-by ','
+
+
+
+
+
+# flume相关指令
+flume-ng agent -c ${FLUME_HOME}/conf -f ${FLUME_HOME}/conf/hdfs_sink.conf -n a1 -Dflume.root.logger=DEBUG,console
+
+
+
+
+
+# kafka相关指令
+
+# 后台启动
+kafka-server.start.sh --daemon ${KAFKA_HOME}/conf/server.properties
+
+kafka-topic.sh --create --zookeeper master:2181,slave1:2181,slave2:2181 --replication-factor 2 --topic hello --partition 1
+
+kafka-topic.sh --list --zookeeper master:2181,slave1:2181,slave2:2181
+
+kafka-console-producer.sh --broker-list master:9092,slave1:9092,slave2:9092 --topic hello
+
+kafka-console-cousumer.sh --zookeeper master:2181,slave1:2181,slave2:2181 --topic hello --from-beginning

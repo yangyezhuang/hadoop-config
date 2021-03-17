@@ -1,0 +1,3 @@
+export SCALA_HOME=${SCALA_HOME}
+
+export PATH=$PATH:$SCALA_HOME/bin

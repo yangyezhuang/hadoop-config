@@ -1,0 +1,36 @@
+<configuration>
+    <!-- JDBC 连接字符串，即MySQL作为元数据存储地址 -->
+    <property>
+        <name>javax.jdo.option.ConnectionURL</name>
+        <value>jdbc:mysql://master:3306/hive_db?createDatabaseIfNotExist=true&amp;useSSL=false</value>
+    </property>
+    <!-- 连接 MySQL 的 hive 操作用户 -->
+    <property>
+        <name>javax.jdo.option.ConnectionUserName</name>
+        <value>root</value>
+    </property>
+    <!-- 连接 MySQL 的 hive 操作用户密码 -->
+    <property>
+        <name>javax.jdo.option.ConnectionPassword</name>
+        <value>Password123$</value>
+    </property>
+    <!-- 配置数据库连接驱动 -->
+    <property>
+        <name>javax.jdo.option.ConnectionDriverName</name>
+        <value>com.mysql.jdbc.Driver</value>
+    </property>
+
+    <!-- 防止启动hive报错，先创建tmp文件夹（查找system相关项） -->
+    <property>
+        <name>hive.querylog.location</name>
+        <value>${HIVE_HOME}/tmp</value>
+    </property>
+    <property>
+        <name>hive.exec.local.scratchdir</name>
+        <value>${HIVE_HOME}/tmp</value>
+    </property>
+    <property>
+        <name>hive.downloaded.resources.dir</name>
+        <value>${HIVE_HOME}/tmp</value>
+    </property>
+</configuration> 

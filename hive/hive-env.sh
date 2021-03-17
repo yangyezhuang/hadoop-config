@@ -1,0 +1,7 @@
+export HADOOP_HOME =${HADOOP_HOME}
+
+export JAVA_HOME=${JAVA_HOME} 
+
+export HIVE_CONF_DIR=${HIVE_HOME}/conf
+
+export HIVE_AUX_JARS_PATH=${HIVE_HOME}/lib
