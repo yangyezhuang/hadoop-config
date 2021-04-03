@@ -20,7 +20,7 @@
     </property>
 
     <property>
-        <name>zookeeper.session.timeout.ms</name>
+        <name>zookeeper.session.timeout</name>
         <value>120000</value>
     </property>
 </configuration>
