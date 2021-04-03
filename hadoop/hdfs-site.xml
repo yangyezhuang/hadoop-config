@@ -31,7 +31,7 @@
 
     <property>
         <name>dfs.namenode.shared.edits.dir</name>
-        <value>qjournal://master:8485;slave1:8485,slave2:8485/mycluster</value>
+        <value>qjournal://master:8485;slave1:8485;slave2:8485/mycluster</value>
     </property>
 
     <property>
