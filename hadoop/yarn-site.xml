@@ -1,6 +1,6 @@
 <configuration>
     <property>
-        <name>yarn.resourcemanager.enabled</name>
+        <name>yarn.resourcemanager.ha.enabled</name>
         <value>true</value>
     </property>
 
